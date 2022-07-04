@@ -31,40 +31,40 @@ jobs:
      # Compiles classes to test 
       - name: compile classes
         working-directory: ./src
-        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./st101173/ST101173.java ./st101173/Message.java ./st101173/Response.java  "../test/st101173/ST101173Test.java"  "../test/st101173/MessageTest.java" "../test/st101173/ResponseTest.java"  
+        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./prog5121_poe_st10083450/PROG5121_POE_st10083450.java ./prog5121_poe_st10083450/Task.java ./prog5121_poe_st10083450/Login.java  "../test/prog5121_poe_st10083450/PROG5121_POE_st10083450Test.java"  "../test/prog5121_poe_st10083450/TaskTest.java" "../test/prog5121_poe_st10083450/LoginTest.java"  
 
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
-        working-directory: ./src/st101173
+        working-directory: ./src/prog5121_poe_st10083450
         run: ls
         
         
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 
-        working-directory: ./src/st101173
-        run: cp -t  "../../test/st101173" Message.class ST101173.class Response.class
+        working-directory: ./src/prog5121_poe_st10083450
+        run: cp -t  "../../test/prog5121_poe_st10083450" Task.class PROG5121_POE_st10083450.class Login.class
         
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
-        working-directory: ./test/st101173
-        run: cp -t  "../../testresources/" Message.class ST101173.class Response.class
+        working-directory: ./test/prog5121_poe_st10083450
+        run: cp -t  "../../testresources/" Task.class PROG5121_POE_st10083450.class Login.class
         
         # list contents or directory
       - name: List contents test package
-        working-directory: ./test/st101173
+        working-directory: ./test/prog5121_poe_st10083450
         run: ls
         
-        #run Message Class tests and output report 
+        #run Task Class tests and output report 
       - name: run Messages Class tests and create report 
         working-directory: ./test
         run: |
          ls
-         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  st101173.MessageTest  
+         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  prog5121_poe_st10083450.TaskTest  
          
-            #run Message Class tests and output report 
+            #run Task Class tests and output report 
       - name: run Response Class tests and create report 
         working-directory: ./test
         run: |
          ls
-         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  st101173.ResponseTest 
+         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  prog5121_poe_st10083450.LoginTest 
      
